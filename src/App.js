@@ -45,6 +45,19 @@ const App = () => {
     setXIsNext(previousState => !previousState)
   }
 
+  const moves = history.map((step, move) => {
+    const desc = move ? 
+    `Go to move #${move}` :
+    `Go to game start`
+    return (
+      <li key={move}>
+        <button>
+          {desc}
+        </button>
+      </li>
+    )
+  })
+
   return (
     <div className='game'>
       <div className='game-board'>
@@ -52,6 +65,7 @@ const App = () => {
       </div>
       <div className='game-info'>
         <div className='status'>{status}</div>
+        <ol>{moves}</ol>
       </div>
     </div>
   );
